@@ -1,0 +1,67 @@
+:root {
+    --bg-color: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --text-main: #e0e0e0;
+    --text-dim: #999;
+    --accent: #c62828; /* GM Red */
+    --pass: #2e7d32;
+    --fail: #d32f2f;
+    --warning: #fbc02d;
+    --timer-green: #00e676;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0; padding: 15px;
+    line-height: 1.5;
+}
+
+.hidden { display: none !important; }
+
+/* Header & Menu */
+header { margin-bottom: 20px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+.header-top { display: flex; justify-content: space-between; align-items: center; }
+.v-tag { font-size: 0.8rem; vertical-align: middle; color: var(--text-dim); }
+
+#reset-btn { background: #333; color: #ff5252; border: 1px solid #444; padding: 8px 12px; border-radius: 4px; }
+
+.menu-btn {
+    width: 100%; padding: 25px; margin-bottom: 15px;
+    background: var(--card-bg); color: white; border: 1px solid #333;
+    border-radius: 12px; font-size: 1.2rem; text-align: left;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Step Cards */
+.step-card {
+    background: var(--card-bg); border-left: 8px solid #444;
+    padding: 15px; margin-bottom: 15px; border-radius: 6px;
+}
+.step-card.pass { border-left-color: var(--pass); opacity: 0.7; }
+.step-card.fail { border-left-color: var(--fail); box-shadow: inset 0 0 10px rgba(211, 47, 47, 0.2); }
+
+.step-task { font-size: 1.1rem; font-weight: bold; margin: 0 0 10px 0; }
+
+/* Timer & Notes */
+.timer-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.timer-btn { background: #333; color: white; border: 1px solid #555; padding: 6px 12px; border-radius: 4px; }
+.timer-btn.running { background: var(--warning); color: black; animation: pulse 2s infinite; }
+.time-readout { font-family: monospace; color: var(--timer-green); font-weight: bold; }
+
+.step-note {
+    width: 100%; background: #000; border: 1px solid #333; color: #ccc;
+    padding: 10px; border-radius: 4px; margin-bottom: 12px; font-size: 1rem;
+}
+
+/* Actions */
+.btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pass-btn { background: var(--pass); color: white; border: none; padding: 15px; border-radius: 6px; font-weight: bold; }
+.fail-btn { background: var(--fail); color: white; border: none; padding: 15px; border-radius: 6px; font-weight: bold; }
+
+/* Summary */
+#summary-view { margin-top: 30px; padding: 15px; border-top: 1px dashed #444; }
+.summary-card { padding: 10px; border-bottom: 1px solid #222; }
+
+@keyframes pulse { 0% {opacity: 1;} 50% {opacity: 0.6;} 100% {opacity: 1;} }
