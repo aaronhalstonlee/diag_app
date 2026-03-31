@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DiagTree Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#c62828">
+</head>
+<body class="dark-mode">
+    <header>
+        <div class="header-top">
+            <h1>DiagTree <span class="v-tag">v1.0</span></h1>
+            <button id="reset-btn" onclick="confirmReset()">Reset All</button>
+        </div>
+    </header>
+
+    <main id="app-container">
+        <section id="system-selector">
+            <h2 class="menu-label">Select Diagnostic Path:</h2>
+            <button class="menu-btn" onclick="showBranch('gm-strategy')">GM Strategy Based</button>
+            <button class="menu-btn" onclick="showBranch('electrical')">Electrical / Battery</button>
+            <button class="menu-btn" onclick="showBranch('engine')">Engine / Drivetrain</button>
+            <button class="menu-btn" onclick="showBranch('ev-hybrid')">EV / Hybrid Safety</button>
+        </section>
+
+        <section id="active-branch" class="hidden">
+            <button class="back-btn" onclick="showMenu()">← Back to Systems</button>
+            <h2 id="branch-title">System Name</h2>
+            <div id="checklist-container"></div>
+        </section>
+
+        <section id="summary-view"></section>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
